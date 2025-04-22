@@ -1,57 +1,121 @@
-.container {
-    width: 100vw;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .forms {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: white;
-    height: 35rem;
-    width: 30rem;
-    border-radius: 18px;
-    padding: 1.5rem;
-  }
-  .title {
-    font-size: 3rem;
-    color: black;
-    height: 20vh;
-    display: flex;
-    align-items: center;
-  }
-  
-  .input {
-    width: 100%;
-    margin-bottom: 1.5rem;
-  }
-  
-  .buttom {
-    background-color: yellow;
-    color: black;
-    width: 100%;
-    height: 8vh;
-    font-size: 2rem;
-    margin-top: 1.5rem;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .buttom:hover {
-    background-color: rgb(201, 201, 59);
-    border-color: #646cff;
-  }
-  .textFooter {
-    font-size: 1.5rem;
-    color: black;
-    margin-top: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+/* Estilos para a tela de cadastro */
+.cadastro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
+
+/* Formulário de cadastro */
+.cadastro-container .forms {
+  background-color: white;
+  padding: 30px;
+  width: 350px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Título */
+.cadastro-container .title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Estilos dos campos de entrada */
+.cadastro-container .input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.cadastro-container .input-group label {
+  font-size: 14px;
+  color: #333;
+}
+
+.cadastro-container .input-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Botão de cadastro */
+.cadastro-container .btn-cadastrar {
+  width: 100%;
+  padding: 12px;
+  background-color: #ffcc00; /* Cor amarela */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cadastro-container .btn-cadastrar:hover {
+  background-color: #e6b800; /* Amarelo mais escuro ao passar o mouse */
+}
+
+/* Footer */
+.cadastro-container .textFooter {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.cadastro-container .textFooter a {
+  color: #ffcc00; /* Cor amarela para o link */
+  text-decoration: none;
+}
+
+.cadastro-container .textFooter a:hover {
+  text-decoration: underline;
+}
+
+/* Modal */
+.cadastro-container .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.cadastro-container .modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.cadastro-container .modal h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.cadastro-container .btn-close {
+  background-color: #ffcc00;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cadastro-container .btn-close:hover {
+  background-color: #e6b800;
+}

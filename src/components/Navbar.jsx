@@ -1,26 +1,27 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { BiCameraMovie, BiSearchAlt2 } from "react-icons/bi";
+import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { BiCameraMovie, BiSearchAlt2 } from "react-icons/bi"
+import Home from "../pages/Home"
 
-import "./Navbar.css";
+import "./Navbar.css"
 
 const Navbar = () => {
-  const [search, setSearch] = useState("");
-  const navigate = useNavigate();
+  const [search, setSearch] = useState("")
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    if (!search) return;
+    if (!search) return
 
-    navigate(`/search?q=${search}`, { replace: true });
-    setSearch("");
-  };
+    navigate(`/search?q=${search}`, { replace: true })
+    setSearch("")
+  }
 
   return (
     <nav id="navbar">
       <h2>
-        <Link to="/">
+        <Link to="/Home">
           <BiCameraMovie /> JM Filmes
         </Link>
       </h2>

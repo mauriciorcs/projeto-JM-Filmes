@@ -8,7 +8,7 @@ import {
 } from "react-icons/bs";
 
 import MovieCard from "../components/MovieCard";
-
+import Navbar from "../components/Navbar";  // Importando o Navbar
 import "./Movie.css";
 
 const moviesURL = import.meta.env.VITE_API;
@@ -17,12 +17,23 @@ const apiKey = import.meta.env.VITE_API_KEY;
 const Movie = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
+  const [loading, setLoading] = useState(true); // Estado de carregamento
+  const [error, setError] = useState(null); // Estado para lidar com erros
 
   const getMovie = async (url) => {
-    const res = await fetch(url);
-    const data = await res.json();
-    console.log(data);
-    setMovie(data);
+    try {
+      const res = await fetch(url);
+      if (!res.ok) {
+        throw new Error("Erro ao carregar os dados do filme.");
+      }
+      const data = await res.json();
+      console.log(data);
+      setMovie(data);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false); // Define o estado de carregamento como false quando a requisição terminar
+    }
   };
 
   const formatCurrency = (number) => {
@@ -33,12 +44,24 @@ const Movie = () => {
   };
 
   useEffect(() => {
+    setLoading(true); // Set loading to true every time the id changes
     const movieUrl = `${moviesURL}${id}?${apiKey}`;
     getMovie(movieUrl);
-  }, []);
+  }, [id]); // Dependência do useEffect é o id, para chamar novamente se o id mudar
+
+  if (loading) {
+    return <p>Carregando...</p>; // Exibe uma mensagem de carregamento enquanto os dados não chegam
+  }
+
+  if (error) {
+    return <p>Erro: {error}</p>; // Exibe uma mensagem de erro se houver falha ao buscar os dados
+  }
 
   return (
     <div className="movie-page">
+      {/* Adicionando o Navbar aqui */}
+      <Navbar />
+      
       {movie && (
         <>
           <MovieCard movie={movie} showLink={false} />
@@ -63,7 +86,7 @@ const Movie = () => {
           </div>
           <div className="info description">
             <h3>
-              <BsFillFileEarmarkTextFill /> Descrição:
+              <BsFillFileEarmarkTextFill /> Descrição
             </h3>
             <p>{movie.overview}</p>
           </div>

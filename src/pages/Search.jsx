@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
+import Navbar from "../components/Navbar";  // Importando o Navbar
 
 const searchURL = import.meta.env.VITE_SEARCH;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -26,6 +27,9 @@ const Search = () => {
 
   return (
     <div className="container">
+      {/* Adicionando o Navbar aqui */}
+      <Navbar />
+
       <h2 className="title">
         Resultados para: <span className="query-text">{query}</span>
       </h2>

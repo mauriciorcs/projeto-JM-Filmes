@@ -1,36 +1,63 @@
+/* Navbar */
 #navbar {
+  width: 100%; /* Ocupa toda a largura da tela */
+  background-color: #333; /* Cor de fundo do navbar */
+  color: #ffcc00; /* Cor do texto */
+  padding: 10px 20px; /* Espaçamento interno */
+  position: fixed; /* Fixa no topo da página */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Garante que o navbar fique acima dos outros elementos */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Alinha logo e form */
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #121212;
+}
+
+#navbar h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 #navbar h2 a {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  color: #ffcc00;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+#navbar h2 a:hover {
+  text-decoration: underline;
 }
 
 #navbar form {
   display: flex;
-  gap: 0.5rem;
+  align-items: center;
 }
 
 #navbar input {
-  padding: 0.2rem 0.8rem;
-  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 16px;
   border: none;
+  border-radius: 4px;
+  margin-right: 10px;
+  width: 200px;
 }
 
-#navbar form button {
-  background-color: #f7d354;
-  border: 2px solid #f7d354;
-  border-radius: 4px;
-  color: #000;
-  padding: 0.3rem;
-  font-size: 1.3rem;
-  display: flex;
-  align-items: center;
+#navbar button {
+  background-color: #ffcc00; /* Cor do botão de busca */
+  border: none;
+  padding: 5px 10px;
   cursor: pointer;
+  border-radius: 4px;
+}
+
+#navbar button:hover {
+  background-color: #e6b800;
+}
+
+/* Adicionando um espaçamento para o conteúdo abaixo do navbar fixo */
+body {
+  padding-top: 60px; /* Ajuste a altura conforme o tamanho do navbar */
 }

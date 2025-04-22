@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
-
+import Navbar from "../components/Navbar";  // Importando o Navbar
 import "./MoviesGrid.css";
 
 const moviesURL = import.meta.env.VITE_API;
@@ -16,22 +16,24 @@ const Home = () => {
   };
 
   useEffect(() => {
-    const topRatedUrl = `${moviesURL}top_rated?${apiKey}`;
-    console.log(topRatedUrl);
-    getTopRatedMovies(topRatedUrl);
-  }, []);
+    const topRatedUrl = `${moviesURL}top_rated?${apiKey}`
+    console.log(topRatedUrl)
+    getTopRatedMovies(topRatedUrl)
+  }, [])
 
-  console.log(topMovies);
+  console.log(topMovies)
 
   return (
     <div className="container">
+      <Navbar />
+
       <h2 className="title">Melhores filmes:</h2>
       <div className="movies-container">
         {topMovies.length > 0 &&
           topMovies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default Home;

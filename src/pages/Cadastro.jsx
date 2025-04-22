@@ -1,82 +1,99 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Cadastro.css"; // Importando o CSS global corretamente
-import InputText from "../../components/InputText";
 
 export default function Cadastro() {
   const navigate = useNavigate();
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [showModal, setShowModal] = useState(false); // Controla a exibição do modal de sucesso
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
-    const existingUser = JSON.parse(localStorage.getItem("user"));
-    if (existingUser && existingUser.email === email) {
+
+    // Simulação de validação
+    if (email === "usuario@example.com") {
       alert("Este email já está cadastrado");
       return;
     }
-  
-    const newUser = { nome, email, senha };
-    localStorage.setItem("user", JSON.stringify(newUser));
-    localStorage.setItem("token", "fake-token");
-    navigate("/");
-  };
-  
 
-  const inputs = [
-    {
-      label: "Nome",
-      placeholder: "Digite seu Nome",
-      value: nome,
-      onChange: (e) => setNome(e.target.value),
-    },
-    {
-      label: "Email",
-      placeholder: "Digite seu Email",
-      value: email,
-      onChange: (e) => setEmail(e.target.value),
-    },
-    {
-      label: "Senha",
-      placeholder: "Digite sua Senha",
-      value: senha,
-      onChange: (e) => setSenha(e.target.value),
-    },
-  ];
+    // Exibe o modal de sucesso
+    setShowModal(true);
+
+    // Redireciona para o login após 2 segundos (tempo suficiente para o usuário ver o sucesso)
+    setTimeout(() => {
+      navigate("/login");
+    }, 2000); // Redirecionamento para a tela de login após 2 segundos
+  };
 
   return (
-    <div className="container"> {/* Corrigido para classe CSS global */}
-      <div className="forms"> {/* Corrigido para classe CSS global */}
-        <div className="title">Cadastro</div> {/* Corrigido para classe CSS global */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "1.5rem",
-            width: "100%",
-          }}
-        >
-          {inputs.map((input, index) => (
-            <InputText
-              label={input.label}
-              placeholder={input.placeholder}
-              key={index}
-              value={input.value}
-              onChange={input.onChange}
+    <div className="cadastro-container">
+      <div className="forms">
+        {/* Título */}
+        <div className="title">Cadastro</div>
+
+        <form onSubmit={handleSubmit} className="form-container">
+          {/* Campo de Nome */}
+          <div className="input-group">
+            <label>Nome</label>
+            <input
+              type="text"
+              placeholder="Digite seu Nome"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+              required
             />
-          ))}
-        </div>
-        <div className="buttom" onClick={handleSubmit}> {/* Corrigido para classe CSS global */}
-          <div className="text">Cadastrar</div> {/* Corrigido para classe CSS global */}
-        </div>
-        <div className="textFooter"> {/* Corrigido para classe CSS global */}
+          </div>
+
+          {/* Campo de Email */}
+          <div className="input-group">
+            <label>Email</label>
+            <input
+              type="email"
+              placeholder="Digite seu Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          {/* Campo de Senha */}
+          <div className="input-group">
+            <label>Senha</label>
+            <input
+              type="password"
+              placeholder="Digite sua Senha"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+              required
+            />
+          </div>
+
+          {/* Botão de Cadastro */}
+          <div className="buttom">
+            <button type="submit" className="btn-cadastrar">
+              Cadastrar
+            </button>
+          </div>
+        </form>
+
+        {/* Footer com link para login */}
+        <div className="textFooter">
           <h3>
-            Já tem uma conta? <a href="/">Faça Login</a>
+            Já tem uma conta? <a href="/login">Faça Login</a>
           </h3>
         </div>
       </div>
+
+      {/* Modal de sucesso */}
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <h3>Cadastro concluído!</h3>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

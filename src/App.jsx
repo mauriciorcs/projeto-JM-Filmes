@@ -1,14 +1,13 @@
-import { Outlet } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import { useState } from "react";
+import "./App.css";
 import AppRoutes from "./routes/routes";
 
-import "./App.css";
-
 function App() {
+  const [count, setCount] = useState(0);
+
   return (
-    <div className="app-container">
-      <Navbar />
-      <Outlet />
+    <div>
+      <AppRoutes />
     </div>
   );
 }
