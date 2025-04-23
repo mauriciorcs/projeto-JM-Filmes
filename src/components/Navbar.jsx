@@ -19,33 +19,40 @@ const Navbar = () => {
   }
 
   const goToFavoritos = () => {
-    navigate("/favoritos"); // Redireciona para a página de Favoritos
+    navigate("/favoritos");
   };
 
   return (
-    <nav id="navbar">
-      <h2>
-        <Link to="/home">
-          <BiCameraMovie /> JM Filmes
-        </Link>
-      </h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Busque um filme"
-          onChange={(e) => setSearch(e.target.value)}
-          value={search}
-        />
-        <button type="submit">
-          <BiSearchAlt2 />
-        </button>
-      </form>
+<nav id="navbar">
+  <h2>
+    <Link to="/home">
+      <BiCameraMovie /> JM Filmes
+    </Link>
+  </h2>
 
-      <button onClick={goToFavoritos} className="favoritos-button">
-        Favoritos
+  <div style={{ display: 'flex', alignItems: 'center' }}>
+    {/* Botão Favoritos à esquerda */}
+    <button onClick={goToFavoritos} className="favoritos-button">
+      Favoritos
+    </button>
+
+    {/* Formulário de pesquisa à direita */}
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Busque um filme"
+        onChange={(e) => setSearch(e.target.value)}
+        value={search}
+      />
+      <button type="submit">
+        <BiSearchAlt2 />
       </button>
-    </nav>
+    </form>
+  </div>
+</nav>
+
   );
 };
+
 
 export default Navbar;

@@ -6,6 +6,7 @@ import Movie from "../pages/Movie";
 import Search from "../pages/Search";
 import Favoritos from "../pages/Favoritos";
 
+
 export default function AppRoutes() {
   return (
     <Routes>

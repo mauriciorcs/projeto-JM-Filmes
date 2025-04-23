@@ -25,7 +25,6 @@ export default function Login() {
     localStorage.setItem("user", JSON.stringify(userData));
     navigate("/home");
   };
-  
 
   return (
     <div className="login-container">

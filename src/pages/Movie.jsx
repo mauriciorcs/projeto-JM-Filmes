@@ -8,7 +8,7 @@ import {
 } from "react-icons/bs";
 
 import MovieCard from "../components/MovieCard";
-import Navbar from "../components/Navbar";  // Importando o Navbar
+import Navbar from "../components/Navbar";  
 import "./Movie.css";
 
 const moviesURL = import.meta.env.VITE_API;
@@ -17,8 +17,8 @@ const apiKey = import.meta.env.VITE_API_KEY;
 const Movie = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
-  const [loading, setLoading] = useState(true); // Estado de carregamento
-  const [error, setError] = useState(null); // Estado para lidar com erros
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null)
 
   const getMovie = async (url) => {
     try {
@@ -32,7 +32,7 @@ const Movie = () => {
     } catch (err) {
       setError(err.message);
     } finally {
-      setLoading(false); // Define o estado de carregamento como false quando a requisição terminar
+      setLoading(false);
     }
   };
 
@@ -44,22 +44,21 @@ const Movie = () => {
   };
 
   useEffect(() => {
-    setLoading(true); // Set loading to true every time the id changes
+    setLoading(true); 
     const movieUrl = `${moviesURL}${id}?${apiKey}`;
     getMovie(movieUrl);
-  }, [id]); // Dependência do useEffect é o id, para chamar novamente se o id mudar
+  }, [id]); 
 
   if (loading) {
-    return <p>Carregando...</p>; // Exibe uma mensagem de carregamento enquanto os dados não chegam
+    return <p>Carregando...</p>; 
   }
 
   if (error) {
-    return <p>Erro: {error}</p>; // Exibe uma mensagem de erro se houver falha ao buscar os dados
+    return <p>Erro: {error}</p>; 
   }
 
   return (
     <div className="movie-page">
-      {/* Adicionando o Navbar aqui */}
       <Navbar />
       
       {movie && (

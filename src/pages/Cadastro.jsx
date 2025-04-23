@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Cadastro.css"; // Importando o CSS global corretamente
+import "./Cadastro.css";
 
 export default function Cadastro() {
   const navigate = useNavigate();
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [showModal, setShowModal] = useState(false); // Controla a exibição do modal de sucesso
+  const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,19 +18,16 @@ export default function Cadastro() {
       return;
     }
 
-    // Exibe o modal de sucesso
     setShowModal(true);
 
-    // Redireciona para o login após 2 segundos (tempo suficiente para o usuário ver o sucesso)
     setTimeout(() => {
       navigate("/login");
-    }, 2000); // Redirecionamento para a tela de login após 2 segundos
+    }, 1000); 
   };
 
   return (
     <div className="cadastro-container">
       <div className="forms">
-        {/* Título */}
         <div className="title">Cadastro</div>
 
         <form onSubmit={handleSubmit} className="form-container">
@@ -46,7 +43,6 @@ export default function Cadastro() {
             />
           </div>
 
-          {/* Campo de Email */}
           <div className="input-group">
             <label>Email</label>
             <input
@@ -58,7 +54,6 @@ export default function Cadastro() {
             />
           </div>
 
-          {/* Campo de Senha */}
           <div className="input-group">
             <label>Senha</label>
             <input
@@ -70,7 +65,6 @@ export default function Cadastro() {
             />
           </div>
 
-          {/* Botão de Cadastro */}
           <div className="buttom">
             <button type="submit" className="btn-cadastrar">
               Cadastrar
@@ -78,7 +72,6 @@ export default function Cadastro() {
           </div>
         </form>
 
-        {/* Footer com link para login */}
         <div className="textFooter">
           <h3>
             Já tem uma conta? <a href="/login">Faça Login</a>
@@ -86,7 +79,6 @@ export default function Cadastro() {
         </div>
       </div>
 
-      {/* Modal de sucesso */}
       {showModal && (
         <div className="modal">
           <div className="modal-content">
