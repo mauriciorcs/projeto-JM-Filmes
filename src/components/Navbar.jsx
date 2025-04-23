@@ -18,6 +18,10 @@ const Navbar = () => {
     setSearch("")
   }
 
+  const goToFavoritos = () => {
+    navigate("/favoritos"); // Redireciona para a página de Favoritos
+  };
+
   return (
     <nav id="navbar">
       <h2>
@@ -36,6 +40,10 @@ const Navbar = () => {
           <BiSearchAlt2 />
         </button>
       </form>
+
+      <button onClick={goToFavoritos} className="favoritos-button">
+        Favoritos
+      </button>
     </nav>
   );
 };
