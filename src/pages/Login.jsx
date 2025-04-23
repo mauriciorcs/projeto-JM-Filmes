@@ -7,22 +7,25 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
-  // Função para quando o formulário for enviado
   const handleSubmit = (e) => {
-    e.preventDefault();  // Impede o comportamento padrão do formulário
+    e.preventDefault();  
 
-    // Lógica de validação
     if (email === "usuario@example.com" && senha === "123456") {
-      handleLogin();  // Se as credenciais estiverem corretas, redireciona
+      handleLogin();  
     } else {
       alert("Email ou senha inválidos");
     }
   };
 
-  // Função para redirecionar para a Home
   const handleLogin = () => {
-    navigate("/home"); // Redireciona para a página Home
+    const userData = {
+      email: email,
+      nome: "Usuário Exemplo"
+    };
+    localStorage.setItem("user", JSON.stringify(userData));
+    navigate("/home");
   };
+  
 
   return (
     <div className="login-container">

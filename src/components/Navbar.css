@@ -1,15 +1,15 @@
-/* Navbar */
+
 #navbar {
-  width: 100%; /* Ocupa toda a largura da tela */
-  background-color: #333; /* Cor de fundo do navbar */
-  color: #ffcc00; /* Cor do texto */
-  padding: 10px 20px; /* Espaçamento interno */
-  position: fixed; /* Fixa no topo da página */
+  width: 100%; 
+  background-color: #333; 
+  color: #ffcc00; 
+  padding: 10px 20px;
+  position: fixed; 
   top: 0;
   left: 0;
-  z-index: 1000; /* Garante que o navbar fique acima dos outros elementos */
+  z-index: 1000; 
   display: flex;
-  justify-content: space-between; /* Alinha logo e form */
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -46,7 +46,7 @@
 }
 
 #navbar button {
-  background-color: #ffcc00; /* Cor do botão de busca */
+  background-color: #ffcc00; 
   border: none;
   padding: 5px 10px;
   cursor: pointer;
@@ -57,7 +57,6 @@
   background-color: #e6b800;
 }
 
-/* Adicionando um espaçamento para o conteúdo abaixo do navbar fixo */
 body {
-  padding-top: 60px; /* Ajuste a altura conforme o tamanho do navbar */
+  padding-top: 60px; 
 }

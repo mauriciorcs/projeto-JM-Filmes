@@ -21,7 +21,7 @@ const Navbar = () => {
   return (
     <nav id="navbar">
       <h2>
-        <Link to="/Home">
+        <Link to="/home">
           <BiCameraMovie /> JM Filmes
         </Link>
       </h2>
