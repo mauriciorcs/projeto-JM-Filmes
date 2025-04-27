@@ -31,12 +31,10 @@ const Navbar = () => {
   </h2>
 
   <div style={{ display: 'flex', alignItems: 'center' }}>
-    {/* Botão Favoritos à esquerda */}
     <button onClick={goToFavoritos} className="favoritos-button">
       Favoritos
     </button>
 
-    {/* Formulário de pesquisa à direita */}
     <form onSubmit={handleSubmit}>
       <input
         type="text"

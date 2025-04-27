@@ -27,7 +27,6 @@ const Search = () => {
 
   return (
     <div className="container">
-      {/* Adicionando o Navbar aqui */}
       <Navbar />
 
       <h2 className="title">

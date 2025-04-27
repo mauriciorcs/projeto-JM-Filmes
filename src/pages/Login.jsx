@@ -20,7 +20,7 @@ export default function Login() {
   const handleLogin = () => {
     const userData = {
       email: email,
-      nome: "Usuário Exemplo"
+      nome: "Usuário Admin"
     };
     localStorage.setItem("user", JSON.stringify(userData));
     navigate("/home");
